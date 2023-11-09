@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            border: 10px solid black;
+            width: 75%;
+            margin: 0 auto;
+            background-color: rgb(144, 144, 144) ;
+        }
+        .result{
+            border: 7px solid black;
+            width: 75%;
+            height: 100px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: sans-serif;
+            background-color: rgb(227, 227, 227);
+        }
+        .bodmass{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        div[class*="1"]{
+            width: 24%;
+            border: 7px solid black;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: sans-serif;
+            background-color: rgb(227, 227, 227);
+        }
+        .digits{
+            margin: 10px;
+            border: 7px solid black;
+            /* height: 90px; */
+            display: flex;
+            background-color: rgb(238, 236, 236);
+        }
+        .serial{
+            font-size: 24px;
+            font-weight: 600;
+            font-family: sans-serif;
+            margin: 10px;
+            flex: 1;
+            border: 7px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(227, 227, 227);
+        }
+        .inputs{
+            margin: 10px;
+            flex: 3;
+            border: 7px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: sans-serif;
+            padding: 25px;
+            background-color: rgb(227, 227, 227);
+            
+        }
+        input{
+            font-size: 24px;
+            font-weight: 600;
+            font-family: sans-serif;
+            border: 5px solid black;
+            margin: 10px 0;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="digits">
+            <div class="serial">1</div>
+            <div class="inputs"><input type="text" id="input-1"></div>
+        </div>
+        <div class="digits">
+            <div class="serial">2</div>
+            <div class="inputs"><input type="text" id="input-2"></div>
+        </div>
+        <div class="bodmass">
+            <div id="Plus" onclick="plusbutton()" class="plus-1">+</div>
+            <div class="minus-1">-</div>
+            <div class="multi-1">*</div>
+            <div class="divide-1">/</div>
+        </div>
+        <div class="result" id="results">Result will be displayed here</div>
+    </div>
+</body>
+<script>
+    function plusbutton(){
+        alert('clicked on plus');
+        let a=parseInt(document.getElementById("input-1").value);
+        let b=parseInt(document.getElementById("input-2").value);
+        let c=(a+b)
+        document.getElementById("results").innerHTML = c;
+        console.log(c);
+    }
+</script>
+</html>
