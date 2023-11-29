@@ -101,7 +101,7 @@
         </div>
         <div class="bodmass">
             <div id="Plus" onclick="plusbutton()" class="plus-1">+</div>
-            <div class="minus-1">-</div>
+            <div id="Minus" onclick="minusbutton()" class="minus-1">-</div>
             <div class="multi-1">*</div>
             <div class="divide-1">/</div>
         </div>
@@ -114,6 +114,15 @@
         let a=parseInt(document.getElementById("input-1").value);
         let b=parseInt(document.getElementById("input-2").value);
         let c=(a+b)
+        document.getElementById("results").innerHTML = c;
+        console.log(c);
+    }
+
+    function minusbutton(){
+        alert('clicked on minus');
+        let a=parseInt(document.getElementById("input-1").value);
+        let b=parseInt(document.getElementById("input-2").value);
+        let c=(a-b)
         document.getElementById("results").innerHTML = c;
         console.log(c);
     }
