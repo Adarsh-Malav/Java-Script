@@ -14,6 +14,9 @@
             font-size: 20px;
             font-weight: 600;
         }
+        body{
+            background: url(../../HTML/images/banner2.avif)no-repeat center center/cover ;
+        }
         #tarea{
             background-color: #153558;
             padding: 10px;
@@ -26,13 +29,14 @@
         }
         .textconverter{
             width: 75%;
-            border: 8px solid rgb(4, 33, 60);
+            /* border: 8px solid rgb(4, 33, 60); */
             margin: 0 auto;
             /* background-color: rgb(20, 63, 106); */
-            background-color: #81868c;
+            /* background-color: #81868c; */
+            /* background: url(../../HTML/images/banner2.avif)no-repeat center center/cover ; */
         }
         div[class*="box"]{
-            border: 8px solid rgb(6, 36, 65);
+            /* border: 8px solid rgb(6, 36, 65); */
             width: 98%;
             margin: 10px auto;
             border-radius: 14px;
@@ -41,30 +45,46 @@
             height: 250px;
         }
         .details{
-            border: 8px solid rgb(4, 35, 64);
+            /* border: 8px solid rgb(4, 35, 64); */
             width: 98%;
             margin: 10px auto;
             background-color: rgb(103, 103, 103);
+            /* background-color: #153558; */
             padding: 10px;
             padding-left: 30px;
             border-radius: 14px;
-            
+            margin-top: 5px;
+            margin-bottom: 20px;            
         }
         div[class*="button"]{
             background-color: rgb(103, 103, 103);
             background-color: #153558;
-            width: 31%;
+            /* width: 31%; */
             border: 8px solid rgb(2, 31, 58);
             margin: 8px;
             border-radius: 15px;
             text-align: center;
-            padding: 8px 0;
+            padding: 15px 60px;
         }
         .box-2{
             display: flex;
             flex-wrap: wrap;
-            background-color: rgb(226, 226, 226);
+            /* background-color: rgb(226, 226, 226); */
+            padding: 20px;
+            padding-bottom: 10px;
         }
+        #fnre{
+            display: flex;
+        }
+        #fnre input{
+            background: none;
+            border: none;
+            outline: none;
+            margin-left: 10px;
+            padding-left: 10px;
+            margin-right: 30px;
+        }
+       
         </style>
 </head>
 <body>
@@ -73,13 +93,14 @@
             <textarea id="tarea" name="" style="width: 100%; height: 100%;" id="" cols="30" rows="10"></textarea>
         </div>
         <div class="box-2">
-            <div id="ucase" class="uppercase-button">uppercase</div>
-            <div id="lcase" class="lowercase-button">lowercase</div>
-            <div id="clear" class="clear-button">clear</div>
-            <div id="Trim" class="trim-button">trim</div>
-            <div class="wordcount-button">wordcount</div>
-            <div class="spaceremove-button">spaceremove</div>
-            <div class="charcount-button">charcount</div>
+            <div id="ucase" class="uppercase-button">Upper-Case</div>
+            <div id="lcase" class="lowercase-button">Lower-Case</div>
+            <div id="clear" class="clear-button">Clear</div>
+            <div id="Trim" class="trim-button">Trim</div>
+            <div id="wcount" class="wordcount-button">Word-Count</div>
+            <div id="removespace" class="spaceremove-button">Space-Remove</div>
+            <div id="charcount" class="charcount-button">Character-Count</div>
+            <div id="fnre" class="charcount-button">Find : <input type="text" id="find"> <div id="replacebutton">Replace :</div> <input type="text" id="replace"></div>
         </div>
         <div class="details">Characters : <span id="chartotal"></span> Words : <span id="wordtotal"></span></div>
     </div>
@@ -110,14 +131,27 @@
         } 
             document.getElementById('wordtotal').innerHTML=count;
         }, 1000);
-
-
         // ===============================================
-        
+       
         let te=document.querySelector('#tarea');
         ucase.addEventListener('click',function(){
             te.value=te.value.toUpperCase();
         })
+        
+        // ===============================================
+        wcount.addEventListener('click',function(){
+
+            let words = document.getElementById("tarea").value; 
+            let counter = 0; 
+            let split = words.split(' '); 
+            for (var i = 0; i < split.length; i++) { 
+                if (split[i] != "") { 
+                    counter += 1; 
+                } 
+            } 
+            te.value=counter;
+        })
+
         // ===============================================
         lcase.addEventListener('click',function(){
             te.value=te.value.toLowerCase();
@@ -132,9 +166,33 @@
         })
 
         // ===============================================
+        removespace.addEventListener('click',function(){
+            let remsp=document.getElementById('tarea').value;
+            tarea.value=remsp.split(' ').join('');
+        })
+        // ===============================================
+        charcount.addEventListener('click',function(){
+            let remsp=document.getElementById('tarea').value;
+            tarea.value=remsp.length;
+            // tarea.value=remsp.split("\n").length
 
+        })
+        // ===============================================
+        replacebutton.addEventListener('click',function(){
+            let find=document.getElementById('find').value;
+            let replace=document.getElementById('replace').value;
+            let remsp=document.getElementById('tarea').value;
+            let strarray=remsp.split(' ');
+            // console.log(strarray)
+            for(let a=0;a<strarray.length;a++){
+                if(find===strarray[a]){
+                    strarray[a]=replace;
+                }
+            }
+            tarea.value=strarray.join(' ');
 
+        })
+        
 
 </script>
-
 </html>
