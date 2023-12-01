@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>valid and invalid</h1>
+
+    <label for="">First Name :</label>
+    <input type="text" id="fname" name="" id=""><span id="invalid-fname"></span><br>
+
+    <label for="">Last Name :</label>
+    <input type="text" id="lname" name="" id=""><span id="invalid-lname"></span><br>
+
+    <label for="">Email :</label>
+    <input type="email" id="email" name="" id=""><span id="invalid-email"></span><br>
+
+    <label for="">address :</label>
+    <textarea name=""  id="tarea" cols="30" rows="10"></textarea><span id="invalid-address"></span><br>
+
+    <button onclick="Sub()" id="subbmit">submit</button>
+
+    <script>
+               
+        function Sub(){
+            let Fname=document.getElementById('fname').value;
+            if(Fname==""){
+                document.getElementById('invalid-fname').innerHTML="invalid fname";
+            }
+            let Lname=document.getElementById('lname').value;
+            if(Lname==""){
+                document.getElementById('invalid-lname').innerHTML="invalid lname";
+            }
+            let Email=document.getElementById('email').value;
+            if(Email==""){
+            document.getElementById('invalid-email').innerHTML="invalid email";
+            }
+            let address=document.getElementById('tarea').value;
+            if(address==""){
+                document.getElementById('invalid-address').innerHTML="invalid address";
+            }
+            if(Fname!="" && Lname!="" && Email!="" && address!=""){
+                alert("Submitted")
+            }
+            
+        }
+    </script>
+</body>
+</html>

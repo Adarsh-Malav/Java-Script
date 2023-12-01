@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prompt -->
+    <!-- confirm -->
+    <!-- alert -->
+    <h1>Nested</h1>
+    <script>
+        let b;
+       let a = confirm('can we go to dinner');
+        console.log(a);
+        if(a==true){
+            let b= prompt('where you wan to go')
+            console.log(b);
+            if(b==false){
+                alert('nahi jana')
+            }
+            else if(b!=""){
+                alert('ok lets go to '+ b )
+                alert('meet at citylight')
+            }
+            else{
+                alert('nahi jana')
+            }
+            }
+        else{
+            alert('ok nahi chalte');
+        }    
+
+    </script>
+</body>
+</html>

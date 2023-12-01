@@ -59,8 +59,8 @@
         div[class*="button"]{
             background-color: rgb(103, 103, 103);
             background-color: #153558;
-            /* width: 31%; */
-            border: 8px solid rgb(2, 31, 58);
+            cursor: pointer;
+            border: 5px solid rgb(2, 31, 58);
             margin: 8px;
             border-radius: 15px;
             text-align: center;
@@ -75,16 +75,22 @@
         }
         #fnre{
             display: flex;
+            align-items: center;
         }
         #fnre input{
             background: none;
-            border: none;
+            border: 1px solid rgb(133, 127, 127);
             outline: none;
             margin-left: 10px;
             padding-left: 10px;
+            border-radius: 8px;
             margin-right: 30px;
         }
-       
+       #replacebutton{
+        background-color: rgb(146, 145, 145);
+        padding: 8px 15px;
+        border-radius: 8px;
+       }
         </style>
 </head>
 <body>
@@ -93,14 +99,15 @@
             <textarea id="tarea" name="" style="width: 100%; height: 100%;" id="" cols="30" rows="10"></textarea>
         </div>
         <div class="box-2">
-            <div id="ucase" class="uppercase-button">Upper-Case</div>
+            <!-- onclick="uucc()" -->
+            <div id="ucase"  class="uppercase-button">Upper-Case</div>
             <div id="lcase" class="lowercase-button">Lower-Case</div>
             <div id="clear" class="clear-button">Clear</div>
             <div id="Trim" class="trim-button">Trim</div>
             <div id="wcount" class="wordcount-button">Word-Count</div>
             <div id="removespace" class="spaceremove-button">Space-Remove</div>
             <div id="charcount" class="charcount-button">Character-Count</div>
-            <div id="fnre" class="charcount-button">Find : <input type="text" id="find"> <div id="replacebutton">Replace :</div> <input type="text" id="replace"></div>
+            <div id="fnre" class="charcount-button">Find : <input type="text" id="find"> <div id="replacebutton">Replace</div> <input type="text" id="replace"></div>
         </div>
         <div class="details">Characters : <span id="chartotal"></span> Words : <span id="wordtotal"></span></div>
     </div>
@@ -137,6 +144,10 @@
         ucase.addEventListener('click',function(){
             te.value=te.value.toUpperCase();
         })
+        // function uucc(){
+        //     let te=document.querySelector('#tarea');
+        //     te.value=te.value.toUpperCase();
+        // }
         
         // ===============================================
         wcount.addEventListener('click',function(){
