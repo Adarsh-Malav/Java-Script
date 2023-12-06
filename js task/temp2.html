@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form validation</h1>
+    <label for="">Username :</label> 
+    <input type="text"  id="uname" onblur="handleFunction(uname,'error')">
+    <span id="error"></span>
+    
+    <br>
+    <br>
+    
+    <label for="">fname :</label> 
+    <input type="text"  id="fname" onblur="handleFunction(fname,'error2')">
+    <span id="error2"></span>
+    
+
+   
+    
+
+    <script>
+        function handleFunction(a,b){
+            console.log(a.value);
+            if(a.value==""){
+                document.getElementById(b).innerText="cannot be empty "
+                console.log("userdata is empty")
+            }
+            else{
+                document.getElementById(b).innerText=""
+                console.log('user data is '+ a.value);
+            }
+        }
+
+      
+// ====================================================================
+        
+    </script>
+</body>
+</html>
