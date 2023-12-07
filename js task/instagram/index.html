@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .insta-wrapper{
+            border: 1px solid gray;
+            margin: 10px auto;
+            width: 26%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .instagram-image{
+            background-image: url(https://static.cdninstagram.com/rsrc.php/v3/ya/r/dAoPDEPVlH5.png);
+            background-position: 0px -52px;
+            background-size: auto;
+            width: 175px;
+            height: 51px;
+            background-repeat: no-repeat;
+            margin:40px auto 40px; 
+        }
+        .login{
+            width: 75%;
+            margin: 4px auto;
+            background-color: rgb(0, 209, 246);
+            color: white;
+            padding: 7px 0;
+            border-radius: 8px;
+            border: none;
+            
+        }
+
+        .pass, .uname{
+            width: 75%;
+            margin: 4px auto;
+            padding: 9px 0 7px 8px;
+            background-color: rgb(241, 241, 241);
+            border-radius: 4px;
+            border: 1px solid grey;
+        }
+        .uname{
+            display: flex;
+            align-items: center;
+            /* padding: 10px 5px; */
+        }
+        .inputs{
+            background: transparent;
+            border: none;
+            width: 100%;
+            outline: none;
+            margin: 2px 0;
+        }
+        a{
+           margin: 0 auto;
+        }
+        .pass{
+            display: flex;
+            align-items: center;
+        }
+        .pass input+p{
+            margin-right: 10px;
+            display: none;
+            cursor: pointer;
+        }
+        .uname, .pass{
+            position: relative;
+        }
+        .uname p, .pass .first{
+            position: absolute;
+            z-index: 1;
+            font-size: 13px;
+            top:9px;
+            font-family: sans-serif;
+            color: rgb(101, 101, 101);
+        }
+        .uname input, .pass input{
+            position: relative;
+            z-index: 2;
+        }
+
+ </style>
+</head>
+<body>
+    <section>
+        <div class="insta-wrapper">
+            <div class="instagram-image"></div>
+
+            <div class="uname">
+                <p id="unamep">Phone number, username, or email</p>
+                <input id="phone-number" oninput="dtu()" class="inputs" type="text" placeholder="">
+            </div>
+            <div class="pass">
+                <p class="first" id="first">Password</p>
+                <input id="pass-id" class="inputs"  oninput="dtu2()" type="password" placeholder="">
+                <p id="show" onclick="handlevalidation()">Show</p>
+            </div>
+            <button class="login">Log in</button>
+            <a href="Log in with Facebook"></a>
+            <a href="">Forgot password?</a>
+        </div>
+    </section>
+
+
+    <script>
+        function dtu(){
+            if(document.getElementById("phone-number").value!=""){
+                document.getElementById("unamep").style.fontSize = "9px";
+                document.getElementById("unamep").style.top = "1px";
+                document.getElementById("unamep").style.transition = "0.1s";
+            }
+            else{
+                document.getElementById("unamep").style.top = "8px";
+                document.getElementById("unamep").style.fontSize = "13px";
+
+            }
+        }
+        function dtu2(){
+            if(document.getElementById("pass-id").value!=""){
+                document.getElementById("first").style.fontSize = "9px";
+                document.getElementById("first").style.top = "1px";
+                document.getElementById("first").style.transition = "0.1s";
+                document.getElementById("show").style.display = "block";
+                
+            }
+            else{
+                document.getElementById("show").style.display = "none";
+                document.getElementById("first").style.top = "8px";
+                document.getElementById("first").style.fontSize = "13px";
+
+            }
+        }
+
+        function handlevalidation() {
+                var x = document.getElementById("pass-id");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+    </script>
+</body>
+</html>
